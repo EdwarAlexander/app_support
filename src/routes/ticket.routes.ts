@@ -1,10 +1,11 @@
 import { Router } from "express";
 import * as ticketController from '../controllers/tickets.controller';
+import { authValidator } from "../middlewares/validator";
 
 const ticketRouter = Router();
 
 ticketRouter.route("/tickets")
-    .post(ticketController.saveTicket)
-    .get(ticketController.listAllTicket);
+    .post(authValidator, ticketController.saveTicket)
+    .get(authValidator, ticketController.listAllTicket);
 
 export default ticketRouter;
