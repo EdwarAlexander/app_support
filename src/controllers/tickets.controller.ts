@@ -55,13 +55,16 @@ const listAllTicket = async (req: Request, res: Response) => {
                     attributes: ["equipoId", "nombreEquipo"]
                 },
                 {
-                    model: Sedes
+                    model: Sedes,
+                    attributes: ["sedesId", "nombreSede"]
                 },
                 {
-                    model: Soportes
+                    model: Soportes,
+                    attributes: ["soporteId", "nombreSoporte", "telefonoSoporte"]
                 },
                 {
-                    model: TiposNiveles
+                    model: TiposNiveles,
+                    attributes: ["tipoNivelId", "nombreTipoNivel"]
                 }
             ]
         });
@@ -82,7 +85,7 @@ const searchTicket = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const ticket = await Tickets.findOne({
-            include:[
+            include: [
                 {
                     model: Estados,
                     attributes: ["estadoId", "nombreEstado"]
@@ -92,13 +95,16 @@ const searchTicket = async (req: Request, res: Response) => {
                     attributes: ["equipoId", "nombreEquipo"]
                 },
                 {
-                    model: Sedes
+                    model: Sedes,
+                    attributes: ["sedesId", "nombreSede"]
                 },
                 {
-                    model: Soportes
+                    model: Soportes,
+                    attributes: ["soporteId", "nombreSoporte", "telefonoSoporte"]
                 },
                 {
-                    model: TiposNiveles
+                    model: TiposNiveles,
+                    attributes: ["tipoNivelId", "nombreTipoNivel"]
                 }
             ],
             where: { ticketId: id }
