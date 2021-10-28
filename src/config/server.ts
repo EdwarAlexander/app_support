@@ -7,6 +7,8 @@ import ticketRouter from '../routes/ticket.routes';
 import tipoNivelRouter from '../routes/tiponivel.routes';
 import usuarioRoute from '../routes/usuario.routes';
 import connection from './sequelize';
+import swagger from 'swagger-ui-express';
+import documentacion from "../../swagger.json";
 
 const port_server = Number(process.env.PORT_SERVER);
 
@@ -32,6 +34,8 @@ export default class Server {
         this.app.use(ticketRouter);
         this.app.use(tipoNivelRouter);
         this.app.use(usuarioRoute);
+
+        this.app.use("/docs", swagger.serve, swagger.setup(documentacion));
     }
 
     start() {

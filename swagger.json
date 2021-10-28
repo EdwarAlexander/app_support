@@ -1,0 +1,763 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "App de tickets de help desk",
+    "version": "1.0",
+    "title": "Support",
+    "contact": {}
+  },
+  "host": "127.0.0.1:8000",
+  "basePath": "/",
+  "securityDefinitions": {},
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/soportes": {
+      "get": {
+        "summary": "soporte",
+        "tags": [
+          "Soporte"
+        ],
+        "operationId": "soporte",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "soporte",
+        "tags": [
+          "Soporte"
+        ],
+        "operationId": "Postsoporte",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/soporterequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/estados": {
+      "post": {
+        "summary": "estados",
+        "tags": [
+          "estados"
+        ],
+        "operationId": "estados",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/estadosrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "estados",
+        "tags": [
+          "estados"
+        ],
+        "operationId": "Getestados",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/equipos": {
+      "get": {
+        "summary": "equipos",
+        "tags": [
+          "equipos"
+        ],
+        "operationId": "equipos",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "equipos",
+        "tags": [
+          "equipos"
+        ],
+        "operationId": "Postequipos",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/equiposrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/usuarios": {
+      "post": {
+        "summary": "usuarios",
+        "tags": [
+          "usuario"
+        ],
+        "operationId": "usuarios",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/usuariosrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "login",
+        "tags": [
+          "usuario"
+        ],
+        "operationId": "login",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/loginrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/tickets": {
+      "get": {
+        "summary": "ticket",
+        "tags": [
+          "ticket"
+        ],
+        "operationId": "ticket",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "ticket",
+        "tags": [
+          "ticket"
+        ],
+        "operationId": "Postticket",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ticketrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/tickets/003b0818-6a95-4195-ae82-b3f8bfbf87b0": {
+      "get": {
+        "summary": "ticket/:id",
+        "tags": [
+          "ticket"
+        ],
+        "operationId": "ticket/:id",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/tiposniveles": {
+      "post": {
+        "summary": "tiponivel",
+        "tags": [
+          "tiponivel"
+        ],
+        "operationId": "tiponivel",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/tiponivelrequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "tiponivel",
+        "tags": [
+          "tiponivel"
+        ],
+        "operationId": "Gettiponivel",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/sedes": {
+      "post": {
+        "summary": "sede",
+        "tags": [
+          "sedes"
+        ],
+        "operationId": "sede",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/sederequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "sede",
+        "tags": [
+          "sedes"
+        ],
+        "operationId": "Getsede",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": false,
+            "default": "Bearer {token}",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "soporterequest": {
+      "title": "soporterequest",
+      "example": {
+        "nombreSoporte": "Edwar Moran",
+        "telefonoSoporte": "972693024",
+        "estadoSoporte": 1,
+        "usuarioSoporte": "antanuare"
+      },
+      "type": "object",
+      "properties": {
+        "nombreSoporte": {
+          "type": "string"
+        },
+        "telefonoSoporte": {
+          "type": "string"
+        },
+        "estadoSoporte": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "usuarioSoporte": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nombreSoporte",
+        "telefonoSoporte",
+        "estadoSoporte",
+        "usuarioSoporte"
+      ]
+    },
+    "estadosrequest": {
+      "title": "estadosrequest",
+      "example": {
+        "nombreEstado": "Creado",
+        "estado": 1
+      },
+      "type": "object",
+      "properties": {
+        "nombreEstado": {
+          "type": "string"
+        },
+        "estado": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "nombreEstado",
+        "estado"
+      ]
+    },
+    "equiposrequest": {
+      "title": "equiposrequest",
+      "example": {
+        "nombreEquipo": "Cupomatico",
+        "estadoEquipo": 1,
+        "usuarioEquipo": "antanuare"
+      },
+      "type": "object",
+      "properties": {
+        "nombreEquipo": {
+          "type": "string"
+        },
+        "estadoEquipo": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "usuarioEquipo": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nombreEquipo",
+        "estadoEquipo",
+        "usuarioEquipo"
+      ]
+    },
+    "usuariosrequest": {
+      "title": "usuariosrequest",
+      "example": {
+        "nombreUsuario": "emoran",
+        "passwordUsuario": "Al3xand3r*",
+        "correoUsuario": "emoran@me.com"
+      },
+      "type": "object",
+      "properties": {
+        "nombreUsuario": {
+          "type": "string"
+        },
+        "passwordUsuario": {
+          "type": "string"
+        },
+        "correoUsuario": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nombreUsuario",
+        "passwordUsuario",
+        "correoUsuario"
+      ]
+    },
+    "loginrequest": {
+      "title": "loginrequest",
+      "example": {
+        "correo": "emoran123@me.com",
+        "password": "Al3xand3r*"
+      },
+      "type": "object",
+      "properties": {
+        "correo": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "correo",
+        "password"
+      ]
+    },
+    "ticketrequest": {
+      "title": "ticketrequest",
+      "example": {
+        "fechaTicket": "2021-10-28T00:00:00.000Z",
+        "ipEquipoTicket": "192.168.1.252",
+        "tituloTicket": "Problemas con Cupomatico 2",
+        "descripcionTicket": "No esta reconociendo la impresora de cupones",
+        "solucionTicket": "",
+        "usuarioTicket": "antanuare",
+        "idEstadoTicket": "2598f29e-eac5-4e1a-9b68-d483539dbf7a",
+        "idEquipoTicket": "e1c23b81-769d-4943-801a-2fae555802bd",
+        "idNivelTicket": "2205d2ff-dbc5-4207-b459-6a3bac22e49d",
+        "idSoporteTicket": "8ea57b67-342b-4f1a-974d-311a1e54b583",
+        "idSedeTicket": "4b34aa9e-dba6-4a04-ad7b-3308b7fcd05b"
+      },
+      "type": "object",
+      "properties": {
+        "fechaTicket": {
+          "type": "string"
+        },
+        "ipEquipoTicket": {
+          "type": "string"
+        },
+        "tituloTicket": {
+          "type": "string"
+        },
+        "descripcionTicket": {
+          "type": "string"
+        },
+        "solucionTicket": {
+          "type": "string"
+        },
+        "usuarioTicket": {
+          "type": "string"
+        },
+        "idEstadoTicket": {
+          "type": "string"
+        },
+        "idEquipoTicket": {
+          "type": "string"
+        },
+        "idNivelTicket": {
+          "type": "string"
+        },
+        "idSoporteTicket": {
+          "type": "string"
+        },
+        "idSedeTicket": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fechaTicket",
+        "ipEquipoTicket",
+        "tituloTicket",
+        "descripcionTicket",
+        "solucionTicket",
+        "usuarioTicket",
+        "idEstadoTicket",
+        "idEquipoTicket",
+        "idNivelTicket",
+        "idSoporteTicket",
+        "idSedeTicket"
+      ]
+    },
+    "tiponivelrequest": {
+      "title": "tiponivelrequest",
+      "example": {
+        "nombreTipoNivel": "Alto",
+        "estadoTipoNivel": 1
+      },
+      "type": "object",
+      "properties": {
+        "nombreTipoNivel": {
+          "type": "string"
+        },
+        "estadoTipoNivel": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "nombreTipoNivel",
+        "estadoTipoNivel"
+      ]
+    },
+    "sederequest": {
+      "title": "sederequest",
+      "example": {
+        "nombreSede": "paita",
+        "estadoSede": 1,
+        "usuarioSede": "antanuare"
+      },
+      "type": "object",
+      "properties": {
+        "nombreSede": {
+          "type": "string"
+        },
+        "estadoSede": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "usuarioSede": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nombreSede",
+        "estadoSede",
+        "usuarioSede"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Soporte"
+    },
+    {
+      "name": "estados"
+    },
+    {
+      "name": "equipos"
+    },
+    {
+      "name": "usuario"
+    },
+    {
+      "name": "ticket"
+    },
+    {
+      "name": "tiponivel"
+    },
+    {
+      "name": "sedes"
+    }
+  ]
+}
