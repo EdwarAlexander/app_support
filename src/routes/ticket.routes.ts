@@ -7,5 +7,6 @@ const ticketRouter = Router();
 ticketRouter.route("/tickets")
     .post(authValidator, ticketController.saveTicket)
     .get(authValidator, ticketController.listAllTicket);
+ticketRouter.get("/tickets/:id",authValidator,ticketController.searchTicket);
 
 export default ticketRouter;

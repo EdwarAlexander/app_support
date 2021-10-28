@@ -6,29 +6,44 @@ import { crearSedeDto } from "../dtos/request/sede.dto";
 
 
 const saveSede = async (req: Request, res: Response) => {
-    const validador = plainToClass(crearSedeDto, req.body);
-    const errores = await validate(validador);
-    if (errores.length !== 0) {
-        const informacion_errores = errores.map((error) => error.constraints);
-        return res.status(400).json({
-            content: informacion_errores,
-            message: "Error al crear el sede"
+    try {
+        const validador = plainToClass(crearSedeDto, req.body);
+        const errores = await validate(validador);
+        if (errores.length !== 0) {
+            const informacion_errores = errores.map((error) => error.constraints);
+            return res.status(400).json({
+                content: informacion_errores,
+                message: "Error al crear el sede"
+            });
+        }
+
+        const nuevoSede = await Sedes.create(validador);
+        return res.status(201).json({
+            content: nuevoSede,
+            message: 'Equipo creado'
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Error al crear sede",
+            content: error,
         });
     }
-
-    const nuevoSede = await Sedes.create(validador);
-    return res.status(201).json({
-        content: nuevoSede,
-        message: 'Equipo creado'
-    });
 }
 
 const listAllSede = async (req: Request, res: Response) => {
-    const sedes = await Sedes.findAll();
-    return res.status(200).json({
-        content: sedes,
-        message: null
-    });
+    
+    try {
+        const sedes = await Sedes.findAll();
+        return res.status(200).json({
+            content: sedes,
+            message: null
+        });    
+    } catch (error) {
+        return res.status(500).json({
+            message: "Error al listar sede",
+            content: error,
+        });
+    }
 }
 
 export {

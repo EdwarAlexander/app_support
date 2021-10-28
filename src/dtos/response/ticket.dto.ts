@@ -1,4 +1,4 @@
-import { Exclude,Expose } from "class-transformer";
+import { Exclude, Expose } from "class-transformer";
 
 @Exclude()
 export class responseTicketDto {
@@ -13,30 +13,39 @@ export class responseTicketDto {
     ipEquipoTicket: string;
 
     @Expose()
-    tituloTicket:string;
+    tituloTicket: string;
 
     @Expose()
-    descripcionTicket:string;
+    descripcionTicket: string;
 
     @Expose()
-    solucionTicket:string;
+    solucionTicket: string;
 
     @Expose()
-    usuarioTicket:string;
+    usuarioTicket: string;
 
-    estadoId:string;
+    estadoId: string;
 
-    equipoId:string;
+    equipoId: string;
 
-    tiponivelId:string;
+    tiponivelId: string;
 
-    sedeId:string;
+    sedeId: string;
 
-    soporteId:string;
-
-    @Expose()
-    estado:string;
+    soporteId: string;
 
     @Expose()
-    equipo:string;
+    estado: string;
+
+    @Expose()
+    equipo: string;
+
+    @Expose()
+    sede: string;
+
+    @Expose()
+    soporte: string;
+
+    @Expose()
+    tiponivele: string;
 }
