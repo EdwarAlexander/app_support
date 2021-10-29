@@ -8,6 +8,7 @@ import tipoNivelRouter from '../routes/tiponivel.routes';
 import usuarioRoute from '../routes/usuario.routes';
 import connection from './sequelize';
 import swagger from 'swagger-ui-express';
+import cors from 'cors';
 import documentacion from "../../swagger.json";
 
 const port_server = Number(process.env.PORT_SERVER);
@@ -18,6 +19,7 @@ export default class Server {
     constructor() {
         this.app = express();
         this.port = port_server;
+        this.app.use(cors());
         this.bodyParser();
         this.rutas();
     }
